@@ -1,14 +1,12 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "club_management";
+require_once 'dblogin.php';
 
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $pdo = new PDO($attr, $user, $pwd, $opts);
+}
+catch (PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
 }
 
 ?>
