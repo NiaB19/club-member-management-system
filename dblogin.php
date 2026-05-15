@@ -1,4 +1,7 @@
+
 <?php // dblogin.php
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
   $host = 'localhost';    
   $database = 'bcs350sp26'; 
   $user = 'usersp26';         

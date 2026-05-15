@@ -1,5 +1,7 @@
-<?php
 
+<?php
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
 session_start();
 
 require_once 'dbconnect.php';

@@ -1,14 +1,16 @@
-<?php
 
+<?php
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
 require_once 'dbconnect.php';
 
 try {
 
-    $pdo->exec("CREATE TABLE IF NOT EXISTS members");
-    $pdo->exec("CREATE TABLE IF NOT EXISTS users");
+    $pdo->exec("DROP TABLE IF EXISTS members");
+    $pdo->exec("DROP TABLE IF EXISTS users");
 
     $pdo->exec("
-        CREATE TABLE users(
+        CREATE TABLE IF NOT EXISTS users(
             username VARCHAR(50) PRIMARY KEY,
             email VARCHAR(100) NOT NULL UNIQUE,
             password VARCHAR(255) NOT NULL,
@@ -17,7 +19,7 @@ try {
     ");
 
     $pdo->exec("
-        CREATE TABLE members(
+        CREATE TABLE IF NOT EXISTS members(
             member_id INT AUTO_INCREMENT PRIMARY KEY,
             first_name VARCHAR(50) NOT NULL,
             last_name VARCHAR(50) NOT NULL,

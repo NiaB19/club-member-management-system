@@ -1,4 +1,7 @@
+
 <?php
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
 require_once 'auth.php';
 require_once 'dbconnect.php';
 

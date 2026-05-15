@@ -1,5 +1,6 @@
 <?php
-
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
 require_once 'dblogin.php';
 
 try {

@@ -1,4 +1,13 @@
+
 <?php include 'navbar.php'; ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze

@@ -1,7 +1,21 @@
+
 <?php
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
 require_once 'auth.php';
 require_once 'dbconnect.php';
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<?php
 $id = $_GET['id'] ?? $_POST['member_id'] ?? '';
 
 if ($id === '') {

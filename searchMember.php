@@ -1,4 +1,16 @@
-<?php include 'navbar.php'; ?>
+
+<?php include 'navbar.php';
+ // I certify that this submission is my own original work.
+ // Nia Bardavelidze
+ ?>
+ <!doctype html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
 <?php
 require_once 'auth.php';
 require_once 'dbconnect.php';

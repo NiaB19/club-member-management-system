@@ -1,10 +1,26 @@
+
 <?php
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
 require_once 'auth.php';
 require_once 'dbconnect.php';
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<?php
 $stmt = $pdo->query("SELECT * FROM members ORDER BY member_id");
 $members = $stmt->fetchAll();
 ?>
+
 <?php include 'navbar.php'; ?>
 <!doctype html>
 <html lang="en">
@@ -52,6 +68,7 @@ $members = $stmt->fetchAll();
         </tr>
     <?php endforeach; ?>
 </table>
+</div>
 
 </body>
 </html>

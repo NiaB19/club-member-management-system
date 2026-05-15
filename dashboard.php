@@ -1,4 +1,7 @@
+
 <?php
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
 require_once 'auth.php';
 require_once 'dbconnect.php';
 
@@ -15,7 +18,16 @@ $totalLeadership = $pdo->query("
     WHERE role != 'Member'
 ")->fetchColumn();
 ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
 <!doctype html>
 <html lang="en">
 <head>
