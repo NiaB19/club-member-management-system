@@ -1,7 +1,7 @@
-
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+
 require_once 'auth.php';
 require_once 'dbconnect.php';
 
@@ -18,44 +18,41 @@ $totalLeadership = $pdo->query("
     WHERE role != 'Member'
 ")->fetchColumn();
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-</head>
-<body>
 
 <?php include 'navbar.php'; ?>
 
 <h1>Club Dashboard</h1>
 
-<div style="display:flex; gap:20px;">
+<div class="card-container">
 
-    <div style="border:1px solid black; padding:20px;">
+    <div class="card">
         <h2>Total Members</h2>
         <p><?php echo htmlspecialchars($totalMembers); ?></p>
     </div>
 
-    <div style="border:1px solid black; padding:20px;">
+    <div class="card">
         <h2>Average Attendance</h2>
         <p><?php echo htmlspecialchars($avgAttendance); ?></p>
     </div>
 
-    <div style="border:1px solid black; padding:20px;">
+    <div class="card">
         <h2>Leadership Members</h2>
         <p><?php echo htmlspecialchars($totalLeadership); ?></p>
     </div>
+
+</div>
 
 </div>
 

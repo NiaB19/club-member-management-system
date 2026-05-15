@@ -15,19 +15,17 @@ require_once 'auth.php';
 </head>
 <body>
 
+<div class="container">
+
+<?php include 'navbar.php'; ?>
+
 <h1>Main Menu</h1>
 
-<p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
+<p style="text-align:center;">
+    Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+</p>
 
-<ul>
-    <li><a href="dashboard.php">Dashboard</a></li>
-    <li><a href="listMembers.php">List Records</a></li>
-    <li><a href="addMember.php">Add Records</a></li>
-    <li><a href="searchMember.php">Search Records</a></li>
-    <li><a href="listMembers.php">Update Records</a></li>
-    <li><a href="listMembers.php">Delete Records</a></li>
-    <li><a href="logout.php">Log Out</a></li>
-</ul>
 </div>
+
 </body>
 </html>

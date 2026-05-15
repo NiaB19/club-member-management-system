@@ -1,21 +1,10 @@
-
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+
 require_once 'auth.php';
 require_once 'dbconnect.php';
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<div class="container">
-<?php
 $id = $_GET['id'] ?? $_POST['member_id'] ?? '';
 
 if ($id === '') {
@@ -70,8 +59,11 @@ if (!$member) {
 <head>
     <meta charset="UTF-8">
     <title>Update Member</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="container">
 
 <h1>Update Member</h1>
 
@@ -82,21 +74,17 @@ if (!$member) {
     <input type="hidden" name="member_id" value="<?php echo htmlspecialchars($member['member_id']); ?>">
 
     <input type="text" name="first_name" value="<?php echo htmlspecialchars($member['first_name']); ?>" required><br><br>
-
     <input type="text" name="last_name" value="<?php echo htmlspecialchars($member['last_name']); ?>" required><br><br>
-
     <input type="email" name="email" value="<?php echo htmlspecialchars($member['email']); ?>" required><br><br>
-
     <input type="text" name="major" value="<?php echo htmlspecialchars($member['major']); ?>" required><br><br>
-
     <input type="number" name="grad_year" value="<?php echo htmlspecialchars($member['grad_year']); ?>" required><br><br>
-
     <input type="text" name="role" value="<?php echo htmlspecialchars($member['role']); ?>" required><br><br>
-
     <input type="number" name="attendance_count" value="<?php echo htmlspecialchars($member['attendance_count']); ?>" required><br><br>
 
     <button type="submit">Update Member</button>
 </form>
+
+</div>
 
 </body>
 </html>

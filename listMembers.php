@@ -1,14 +1,19 @@
-
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+
 require_once 'auth.php';
 require_once 'dbconnect.php';
+
+$stmt = $pdo->query("SELECT * FROM members ORDER BY member_id");
+$members = $stmt->fetchAll();
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>List Members</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,26 +21,14 @@ require_once 'dbconnect.php';
 
 <div class="container">
 
-<?php
-$stmt = $pdo->query("SELECT * FROM members ORDER BY member_id");
-$members = $stmt->fetchAll();
-?>
-
 <?php include 'navbar.php'; ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List Members</title>
-</head>
-<body>
 
 <h1>Club Members</h1>
 
 <p><a href="mainmenu.php">Back to Main Menu</a></p>
 <p><a href="addMember.php">Add New Member</a></p>
 
-<table border="1" cellpadding="8">
+<table>
     <tr>
         <th>ID</th>
         <th>First Name</th>
@@ -60,6 +53,7 @@ $members = $stmt->fetchAll();
             <td><?php echo htmlspecialchars($member['attendance_count']); ?></td>
             <td>
                 <a href="updateMember.php?id=<?php echo urlencode($member['member_id']); ?>">Update</a> |
+
                 <a href="deleteMember.php?id=<?php echo urlencode($member['member_id']); ?>"
                    onclick="return confirm('Are you sure you want to delete this member?');">
                    Delete
@@ -67,7 +61,9 @@ $members = $stmt->fetchAll();
             </td>
         </tr>
     <?php endforeach; ?>
+
 </table>
+
 </div>
 
 </body>

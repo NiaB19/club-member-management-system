@@ -1,17 +1,7 @@
-
-<?php include 'navbar.php';
- // I certify that this submission is my own original work.
- // Nia Bardavelidze
- ?>
- <!doctype html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-
-     <link rel="stylesheet" href="style.css">
- </head>
- <body>
 <?php
+// I certify that this submission is my own original work.
+// Nia Bardavelidze
+
 require_once 'auth.php';
 require_once 'dbconnect.php';
 
@@ -27,12 +17,16 @@ $allowedFields = [
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $field = $_POST['field'] ?? '';
     $search = trim($_POST['search'] ?? '');
 
     if (array_key_exists($field, $allowedFields) && $search !== '') {
+
         $stmt = $pdo->prepare("SELECT * FROM members WHERE $field LIKE ?");
+
         $stmt->execute(['%' . $search . '%']);
+
         $results = $stmt->fetchAll();
     }
 }
@@ -43,26 +37,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Search Members</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="container">
+
+<?php include 'navbar.php'; ?>
 
 <h1>Search Members</h1>
 
 <p><a href="mainmenu.php">Back to Main Menu</a></p>
 
 <form method="post">
+
     <label>Choose field:</label>
+
     <select name="field" required>
+
         <?php foreach ($allowedFields as $value => $label): ?>
+
             <option value="<?php echo htmlspecialchars($value); ?>">
                 <?php echo htmlspecialchars($label); ?>
             </option>
+
         <?php endforeach; ?>
+
     </select>
 
     <input type="text" name="search" placeholder="Enter search term" required>
 
     <button type="submit">Search</button>
+
 </form>
 
 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
@@ -70,7 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Search Results</h2>
 
     <?php if (count($results) > 0): ?>
-        <table border="1" cellpadding="8">
+
+        <table>
+
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
@@ -83,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </tr>
 
             <?php foreach ($results as $member): ?>
+
                 <tr>
                     <td><?php echo htmlspecialchars($member['member_id']); ?></td>
                     <td><?php echo htmlspecialchars($member['first_name']); ?></td>
@@ -93,13 +103,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <td><?php echo htmlspecialchars($member['role']); ?></td>
                     <td><?php echo htmlspecialchars($member['attendance_count']); ?></td>
                 </tr>
+
             <?php endforeach; ?>
+
         </table>
+
     <?php else: ?>
+
         <p>No records found.</p>
+
     <?php endif; ?>
 
 <?php endif; ?>
+
+</div>
 
 </body>
 </html>

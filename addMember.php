@@ -1,13 +1,3 @@
-
-<?php include 'navbar.php'; ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
@@ -16,6 +6,7 @@ require_once 'auth.php';
 require_once 'dbconnect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $first_name = trim($_POST['first_name'] ?? '');
     $last_name = trim($_POST['last_name'] ?? '');
     $email = trim($_POST['email'] ?? '');
@@ -50,24 +41,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Add Member</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="container">
+
+<?php include 'navbar.php'; ?>
 
 <h1>Add Member</h1>
 
 <p><a href="mainmenu.php">Back to Main Menu</a></p>
 
 <form method="post">
-    <input type="text" name="first_name" placeholder="First Name" required><br><br>
-    <input type="text" name="last_name" placeholder="Last Name" required><br><br>
-    <input type="email" name="email" placeholder="Email" required><br><br>
-    <input type="text" name="major" placeholder="Major" required><br><br>
-    <input type="number" name="grad_year" placeholder="Graduation Year" required><br><br>
-    <input type="text" name="role" placeholder="Role" required><br><br>
-    <input type="number" name="attendance_count" placeholder="Attendance Count" required><br><br>
+
+    <input type="text" name="first_name" placeholder="First Name" required>
+
+    <input type="text" name="last_name" placeholder="Last Name" required>
+
+    <input type="email" name="email" placeholder="Email" required>
+
+    <input type="text" name="major" placeholder="Major" required>
+
+    <input type="number" name="grad_year" placeholder="Graduation Year" required>
+
+    <input type="text" name="role" placeholder="Role" required>
+
+    <input type="number" name="attendance_count" placeholder="Attendance Count" required>
 
     <button type="submit">Add Member</button>
+
 </form>
+
+</div>
 
 </body>
 </html>

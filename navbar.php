@@ -1,16 +1,13 @@
+<nav>
+    <a href="mainmenu.php">Main Menu</a>
 
-<nav style="padding:15px; background:#222;">
+    <a href="dashboard.php">Dashboard</a>
 
-    <a href="mainmenu.php" style="color:white; margin-right:15px;">Main Menu</a>
+    <a href="listMembers.php">Members</a>
 
-    <a href="listMembers.php" style="color:white; margin-right:15px;">List Members</a>
+    <a href="addMember.php">Add Member</a>
 
-    <a href="addMember.php" style="color:white; margin-right:15px;">Add Member</a>
+    <a href="searchMember.php">Search</a>
 
-    <a href="searchMember.php" style="color:white; margin-right:15px;">Search Members</a>
-
-    <a href="logout.php" style="color:red;">Logout</a>
-
+    <a href="logout.php">Logout</a>
 </nav>
-
-<hr>

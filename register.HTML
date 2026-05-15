@@ -1,27 +1,34 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Register</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Create Account</h2>
+<div class="container">
 
-<form action="register.php" method="post" onsubmit="return validateRegisterForm();">
-    <input type="text" name="username" id="username" placeholder="Username" required><br><br>
+    <h2>Create Account</h2>
 
-    <input type="email" name="email" id="email" placeholder="Email" required><br><br>
+    <form action="register.php" method="post" onsubmit="return validateRegisterForm();">
 
-    <input type="password" name="password" id="password" placeholder="Password" required><br><br>
+        <input type="text" name="username" id="username" placeholder="Username" required>
 
-    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required><br><br>
+        <input type="email" name="email" id="email" placeholder="Email" required>
 
-    <button type="submit">Register</button>
-</form>
+        <input type="password" name="password" id="password" placeholder="Password" required>
 
-<p>Already have an account? <a href="login.html">Log in</a></p>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <p>Already have an account? <a href="login.html">Log in</a></p>
+
+</div>
 
 <script>
     function validateRegisterForm() {
@@ -31,9 +38,6 @@
         let confirmPassword = document.getElementById("confirm_password").value;
 
         let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        let lowercasePattern = /[a-z]/;
-        let uppercasePattern = /[A-Z]/;
-        let numberPattern = /[0-9]/;
 
         if (username.length < 6) {
             alert("Username must be at least 6 characters long.");
@@ -45,23 +49,8 @@
             return false;
         }
 
-        if (password.length < 8) {
-            alert("Password must be at least 8 characters long.");
-            return false;
-        }
-
-        if (!lowercasePattern.test(password)) {
-            alert("Password must contain at least one lowercase letter.");
-            return false;
-        }
-
-        if (!uppercasePattern.test(password)) {
-            alert("Password must contain at least one uppercase letter.");
-            return false;
-        }
-
-        if (!numberPattern.test(password)) {
-            alert("Password must contain at least one number.");
+        if (password.length < 8 || !/[a-z]/.test(password) || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+            alert("Password must be at least 8 characters and include uppercase, lowercase, and a number.");
             return false;
         }
 
