@@ -5,8 +5,8 @@
 require_once 'auth.php';
 require_once 'dbconnect.php';
 
-$stmt = $pdo->query("SELECT * FROM members ORDER BY member_id");
-$members = $stmt->fetchAll();
+$query = "SELECT * FROM members ORDER BY member_id";
+$result = $pdo->query($query);
 ?>
 
 <!doctype html>
@@ -26,9 +26,11 @@ $members = $stmt->fetchAll();
 <h1>Club Members</h1>
 
 <p><a href="mainmenu.php">Back to Main Menu</a></p>
+
 <p><a href="addMember.php">Add New Member</a></p>
 
 <table>
+
     <tr>
         <th>ID</th>
         <th>First Name</th>
@@ -41,26 +43,51 @@ $members = $stmt->fetchAll();
         <th>Actions</th>
     </tr>
 
-    <?php foreach ($members as $member): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($member['member_id']); ?></td>
-            <td><?php echo htmlspecialchars($member['first_name']); ?></td>
-            <td><?php echo htmlspecialchars($member['last_name']); ?></td>
-            <td><?php echo htmlspecialchars($member['email']); ?></td>
-            <td><?php echo htmlspecialchars($member['major']); ?></td>
-            <td><?php echo htmlspecialchars($member['grad_year']); ?></td>
-            <td><?php echo htmlspecialchars($member['role']); ?></td>
-            <td><?php echo htmlspecialchars($member['attendance_count']); ?></td>
-            <td>
-                <a href="updateMember.php?id=<?php echo urlencode($member['member_id']); ?>">Update</a> |
+<?php
 
-                <a href="deleteMember.php?id=<?php echo urlencode($member['member_id']); ?>"
-                   onclick="return confirm('Are you sure you want to delete this member?');">
-                   Delete
-                </a>
-            </td>
-        </tr>
-    <?php endforeach; ?>
+while ($row = $result->fetch())
+{
+    $r0 = htmlspecialchars($row['member_id']);
+    $r1 = htmlspecialchars($row['first_name']);
+    $r2 = htmlspecialchars($row['last_name']);
+    $r3 = htmlspecialchars($row['email']);
+    $r4 = htmlspecialchars($row['major']);
+    $r5 = htmlspecialchars($row['grad_year']);
+    $r6 = htmlspecialchars($row['role']);
+    $r7 = htmlspecialchars($row['attendance_count']);
+
+    echo <<<_END
+
+    <tr>
+
+        <td>$r0</td>
+        <td>$r1</td>
+        <td>$r2</td>
+        <td>$r3</td>
+        <td>$r4</td>
+        <td>$r5</td>
+        <td>$r6</td>
+        <td>$r7</td>
+
+        <td>
+
+            <a href="updateMember.php?id=$r0">Update</a>
+
+            |
+
+            <a href="deleteMember.php?id=$r0"
+               onclick="return confirm('Are you sure you want to delete this member?');">
+               Delete
+            </a>
+
+        </td>
+
+    </tr>
+
+_END;
+}
+
+?>
 
 </table>
 

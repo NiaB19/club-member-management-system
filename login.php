@@ -4,7 +4,7 @@
 // Nia Bardavelidze
 session_start();
 
-require_once 'dbconnect.php';
+require_once 'dbconnect.php';//require once to prevent duplicate disk and to show an error if file not found CH Build and executing qiery
 
 $username = trim($_POST['username'] ?? '');
 $password = $_POST['password'] ?? '';

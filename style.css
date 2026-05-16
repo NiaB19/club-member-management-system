@@ -127,3 +127,57 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
+td:last-child, th:last-child {
+    min-width: 150px;
+    text-align: center;
+}
+
+td form {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+    width: auto;
+}
+
+td button {
+    width: auto;
+    padding: 8px 12px;
+}
+
+td a {
+    display: inline-block;
+    margin-bottom: 6px;
+}.delete-form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.delete-link {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    font-size: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    width: auto;
+    box-shadow: none;
+}
+
+.delete-link:hover {
+    text-decoration: underline;
+}
+
+td:last-child {
+    white-space: nowrap;
+}

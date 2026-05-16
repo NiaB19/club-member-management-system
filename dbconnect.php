@@ -7,7 +7,8 @@ try {
     $pdo = new PDO($attr, $user, $pwd, $opts);
 }
 catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+    throw new PDOException($e->getMessage(), (int)$e->getCode());//from book 368
+
 }
 
 ?>
