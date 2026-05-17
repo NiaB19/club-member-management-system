@@ -75,10 +75,33 @@ while ($row = $result->fetch())
 
             |
 
-            <a href="deleteMember.php?id=$r0"
-               onclick="return confirm('Are you sure you want to delete this member?');">
-               Delete
-            </a>
+            <form action="deleteMember.php"
+                  method="post"
+                  style="display:inline;">
+
+                <input type="hidden"
+                       name="member_id"
+                       value="$r0">
+
+                <input type="submit"
+                       value="Delete"
+
+                       onclick="return confirm('Are you sure you want to delete this member?');"
+
+                       style="
+                           background:none;
+                           border:none;
+                           color:#2563eb;
+                           font-weight:bold;
+                           cursor:pointer;
+                           padding:0;
+                           margin:0;
+                           text-decoration:none;
+                           font-size:inherit;
+                           font-family:inherit;
+                       ">
+
+            </form>
 
         </td>
 

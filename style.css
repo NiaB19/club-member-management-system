@@ -149,35 +149,9 @@ td button {
 td a {
     display: inline-block;
     margin-bottom: 6px;
-}.delete-form {
-    display: inline;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    background: transparent;
-    box-shadow: none;
-    border: none;
-}
-
-.delete-link {
-    background: none;
-    border: none;
-    color: #2563eb;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0;
-    margin-left: 8px;
-    font-size: inherit;
-    font-family: inherit;
-    text-decoration: none;
-    width: auto;
-    box-shadow: none;
 }
 
 .delete-link:hover {
     text-decoration: underline;
 }
 
-td:last-child {
-    white-space: nowrap;
-}
