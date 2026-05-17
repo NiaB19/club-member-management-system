@@ -1,10 +1,12 @@
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//Lists all records from the members table in an HTML table.
 
 require_once 'auth.php';
 require_once 'dbconnect.php';
 
+// Retrieve all members from database
 $query = "SELECT * FROM members ORDER BY member_id";
 $result = $pdo->query($query);
 ?>
@@ -45,16 +47,19 @@ $result = $pdo->query($query);
 
 <?php
 
+// Display each member record in HTML table
 while ($row = $result->fetch())
 {
-    $r0 = htmlspecialchars($row['member_id']);
-    $r1 = htmlspecialchars($row['first_name']);
-    $r2 = htmlspecialchars($row['last_name']);
-    $r3 = htmlspecialchars($row['email']);
-    $r4 = htmlspecialchars($row['major']);
-    $r5 = htmlspecialchars($row['grad_year']);
-    $r6 = htmlspecialchars($row['role']);
-    $r7 = htmlspecialchars($row['attendance_count']);
+
+    // Sanitize output before displaying in browser
+    $r0 = htmlentities($row['member_id']);
+    $r1 = htmlentities($row['first_name']);
+    $r2 = htmlentities($row['last_name']);
+    $r3 = htmlentities($row['email']);
+    $r4 = htmlentities($row['major']);
+    $r5 = htmlentities($row['grad_year']);
+    $r6 = htmlentities($row['role']);
+    $r7 = htmlentities($row['attendance_count']);
 
     echo <<<_END
 

@@ -1,3 +1,7 @@
+<!-- I certify that this submission is my own original work.
+ Nia Bardavelidze -->
+<!-- Reusable navigation menu for all authenticated pages -->
+
 <nav>
     <a href="mainmenu.php">Main Menu</a>
 

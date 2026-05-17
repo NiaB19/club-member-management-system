@@ -1,6 +1,7 @@
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//Lists all records from the members table in an HTML table.
 
 require_once 'auth.php';
 require_once 'dbconnect.php';
@@ -15,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = trim($_POST['role'] ?? '');
     $attendance_count = trim($_POST['attendance_count'] ?? '');
 
+    //prepare and execute SQL statement to insert new member into database
     $stmt = $pdo->prepare("
         INSERT INTO members
         (first_name, last_name, email, major, grad_year, role, attendance_count)

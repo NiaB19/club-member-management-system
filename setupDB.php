@@ -2,13 +2,14 @@
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//Drops and creates the user and members tables. Inserts starter member records.
 require_once 'dbconnect.php';
 
 try {
 
     $pdo->exec("DROP TABLE IF EXISTS members");
     $pdo->exec("DROP TABLE IF EXISTS users");
-
+    // Create users table for authentication
     $pdo->exec("
         CREATE TABLE IF NOT EXISTS users(
             username VARCHAR(50) PRIMARY KEY,
@@ -17,8 +18,9 @@ try {
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ");
-
+        // Create members table for CRUD records
     $pdo->exec("
+        
         CREATE TABLE IF NOT EXISTS members(
             member_id INT AUTO_INCREMENT PRIMARY KEY,
             first_name VARCHAR(50) NOT NULL,
@@ -30,7 +32,7 @@ try {
             attendance_count INT DEFAULT 0
         )
     ");
-
+    // Insert starter records into members table
     $stmt = $pdo->prepare("
         INSERT INTO members
         (first_name, last_name, email, major, grad_year, role, attendance_count)

@@ -1,6 +1,8 @@
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//Deletes a selected member from the database.
+
 
 require_once 'auth.php';
 require_once 'dbconnect.php';

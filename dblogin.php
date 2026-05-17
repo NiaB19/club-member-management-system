@@ -2,6 +2,8 @@
 <?php // dblogin.php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//File proveded by professor. 
+// Contains database connection parameters for PDO connection in dbconnect.php
   $host = 'localhost';    
   $database = 'bcs350sp26'; 
   $user = 'usersp26';         

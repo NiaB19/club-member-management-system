@@ -1,6 +1,7 @@
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//Shows the main navigation page after login.
 
 require_once 'auth.php';
 ?>
@@ -22,7 +23,7 @@ require_once 'auth.php';
 <h1>Main Menu</h1>
 
 <p style="text-align:center;">
-    Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+    Welcome, <?php echo htmlentities($_SESSION['username']); ?>!
 </p>
 
 </div>

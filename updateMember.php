@@ -1,6 +1,8 @@
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//Loads a selected member into a form and updates that member’s record.
+
 
 require_once 'auth.php';
 require_once 'dbconnect.php';
@@ -71,15 +73,15 @@ if (!$member) {
 <p><a href="listMembers.php">Back to List Members</a></p>
 
 <form method="post">
-    <input type="hidden" name="member_id" value="<?php echo htmlspecialchars($member['member_id']); ?>">
+    <input type="hidden" name="member_id" value="<?php echo htmlentities($member['member_id']); ?>">
 
-    <input type="text" name="first_name" value="<?php echo htmlspecialchars($member['first_name']); ?>" required><br><br>
-    <input type="text" name="last_name" value="<?php echo htmlspecialchars($member['last_name']); ?>" required><br><br>
-    <input type="email" name="email" value="<?php echo htmlspecialchars($member['email']); ?>" required><br><br>
-    <input type="text" name="major" value="<?php echo htmlspecialchars($member['major']); ?>" required><br><br>
-    <input type="number" name="grad_year" value="<?php echo htmlspecialchars($member['grad_year']); ?>" required><br><br>
-    <input type="text" name="role" value="<?php echo htmlspecialchars($member['role']); ?>" required><br><br>
-    <input type="number" name="attendance_count" value="<?php echo htmlspecialchars($member['attendance_count']); ?>" required><br><br>
+    <input type="text" name="first_name" value="<?php echo htmlentities($member['first_name']); ?>" required><br><br>
+    <input type="text" name="last_name" value="<?php echo htmlentities($member['last_name']); ?>" required><br><br>
+    <input type="email" name="email" value="<?php echo htmlentities($member['email']); ?>" required><br><br>
+    <input type="text" name="major" value="<?php echo htmlentities($member['major']); ?>" required><br><br>
+    <input type="number" name="grad_year" value="<?php echo htmlentities($member['grad_year']); ?>" required><br><br>
+    <input type="text" name="role" value="<?php echo htmlentities($member['role']); ?>" required><br><br>
+    <input type="number" name="attendance_count" value="<?php echo htmlentities($member['attendance_count']); ?>" required><br><br>
 
     <button type="submit">Update Member</button>
 </form>

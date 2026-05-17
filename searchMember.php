@@ -1,6 +1,7 @@
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//Lets users choose a search field from a dropdown and search the members table.
 
 require_once 'auth.php';
 require_once 'dbconnect.php';
@@ -58,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <?php foreach ($allowedFields as $value => $label): ?>
 
-            <option value="<?php echo htmlspecialchars($value); ?>">
-                <?php echo htmlspecialchars($label); ?>
+            <option value="<?php echo htmlentities($value); ?>">
+                <?php echo htmlentities($label); ?>
             </option>
 
         <?php endforeach; ?>
@@ -94,14 +95,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php foreach ($results as $member): ?>
 
                 <tr>
-                    <td><?php echo htmlspecialchars($member['member_id']); ?></td>
-                    <td><?php echo htmlspecialchars($member['first_name']); ?></td>
-                    <td><?php echo htmlspecialchars($member['last_name']); ?></td>
-                    <td><?php echo htmlspecialchars($member['email']); ?></td>
-                    <td><?php echo htmlspecialchars($member['major']); ?></td>
-                    <td><?php echo htmlspecialchars($member['grad_year']); ?></td>
-                    <td><?php echo htmlspecialchars($member['role']); ?></td>
-                    <td><?php echo htmlspecialchars($member['attendance_count']); ?></td>
+                    <td><?php echo htmlentities($member['member_id']); ?></td>
+                    <td><?php echo htmlentities($member['first_name']); ?></td>
+                    <td><?php echo htmlentities($member['last_name']); ?></td>
+                    <td><?php echo htmlentities($member['email']); ?></td>
+                    <td><?php echo htmlentities($member['major']); ?></td>
+                    <td><?php echo htmlentities($member['grad_year']); ?></td>
+                    <td><?php echo htmlentities($member['role']); ?></td>
+                    <td><?php echo htmlentities($member['attendance_count']); ?></td>
                 </tr>
 
             <?php endforeach; ?>

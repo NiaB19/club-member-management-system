@@ -1,6 +1,7 @@
 <?php
 // I certify that this submission is my own original work.
 // Nia Bardavelidze
+//Extra credit page showing statistics like total members, average attendance, and leadership count.
 
 require_once 'auth.php';
 require_once 'dbconnect.php';
@@ -39,17 +40,17 @@ $totalLeadership = $pdo->query("
 
     <div class="card">
         <h2>Total Members</h2>
-        <p><?php echo htmlspecialchars($totalMembers); ?></p>
+        <p><?php echo htmlentities($totalMembers); ?></p>
     </div>
 
     <div class="card">
         <h2>Average Attendance</h2>
-        <p><?php echo htmlspecialchars($avgAttendance); ?></p>
+        <p><?php echo htmlentities($avgAttendance); ?></p>
     </div>
 
     <div class="card">
         <h2>Leadership Members</h2>
-        <p><?php echo htmlspecialchars($totalLeadership); ?></p>
+        <p><?php echo htmlentities($totalLeadership); ?></p>
     </div>
 
 </div>
